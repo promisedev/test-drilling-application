@@ -9,15 +9,19 @@ const initialState= {
 
 }
 const AppProvider = ({children}) => {
-
-const handleClick = (e)=>{
+const [isLoading, setisLoading] = useState(false)
+const [isLogin, setisLogin] = useState(false)
+const handleSubmit = (e)=>{
   e.preventDefault()}
 
 let [state, Dispatch] = useReducer(Reducer, initialState);
     return (   
   <AppContext.Provider value={{
-    
-    handleClick,
+    isLoading,
+    setisLoading,
+    handleSubmit,
+    isLogin,
+    setisLogin
     
   }}>{children}</AppContext.Provider>
     )

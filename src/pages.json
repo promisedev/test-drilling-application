@@ -1,0 +1,18 @@
+[
+    {"id":1,
+    "name":"Home",
+    "route":"/"
+},
+{"id":2,
+    "name":"Topics",
+    "route":"/topics"
+},
+{"id":3,
+    "name":"Discover",
+    "route":"/discover"
+},    
+{"id":4,
+    "name":"Help",
+    "route":"/help"
+}
+]
