@@ -1,0 +1,18 @@
+[
+    {"id":1,
+    "icon":"./graphics/article_icon1.ico",
+    "bg_img":"./graphics/article_bg1.png",
+    "h1": "A platform built to connect millions of Jamb candidates together.",
+    "h2":"A community of student meeting together for one reason, to brain-storm.",
+    "link":"/dashboard/chatroom",
+    "name":"Join community"
+},
+{"id":2,
+    "icon":"./graphics/article_icon2.ico",
+    "bg_img":"./graphics/article_bg2.png",
+    "h1": "Get hands on materials for your exam preparation. ",
+    "h2":"We have well prepared lecture videos and materials including quiz  to get you started with for your exams.",
+    "link":"/dashboard/courses",
+    "name":"Start learning"
+}
+]
