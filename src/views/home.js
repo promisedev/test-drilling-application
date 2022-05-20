@@ -1,17 +1,26 @@
 import {Link} from 'react-router-dom'
+import {useEffect} from 'react'
 import { useGlobalContext } from "../controller/context_api"
-import Loading from './loading'
+import Preloader from './preloader'
+
 import Navigation from "./navigation"
 import Homesection1 from './home_section/homeSection1'
 import Homesection2 from './home_section/homeSection2'
 import Homesection3 from './home_section/homeSection3'
+import Homesection4 from './home_section/homeSection4'
+
 
 const Home = ()=>{
-const {isLoading,setisLoading,isLogin} = useGlobalContext()
+const {isPreloader,setisPreloader,isLogin} = useGlobalContext()
 const windowHeight = window.innerHeight;
+//useEffect(()=>{ window.addEventListener('load',()=>{setisPreloader(false)})},[])
+
+
+
+
 
     return (
-        isLoading?<Loading/>:
+        isPreloader?<Preloader/>:
         <section className='home_content' >
 {/* ////////////////hero section/////////////////////////////////// */}
             <article className='hero' style={{height:`${windowHeight}px`,
@@ -42,7 +51,8 @@ const windowHeight = window.innerHeight;
 <Homesection2/>   
 {/* ////////////////////home section 3 ///////////////////////////////////////// */}
 <Homesection3/>
-
+{/* ////////////////////home section 4//////////////////////////////////////////// */}
+<Homesection4/>
 
 </section>
     )

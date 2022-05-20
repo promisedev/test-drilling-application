@@ -1,0 +1,9 @@
+[
+    {"id":1,
+    "icon":"./graphics/google.ico"},
+{"id":2,
+    "icon":"./graphics/apple.ico"},
+ {"id":3,
+    "icon":"./graphics/facebook.ico"}   
+    
+]

@@ -10,6 +10,7 @@ const initialState= {
 }
 const AppProvider = ({children}) => {
 const [isLoading, setisLoading] = useState(false)
+const [isPreloader,setisPreloader]  = useState(false)
 const [isLogin, setisLogin] = useState(false)
 const handleSubmit = (e)=>{
   e.preventDefault()}
@@ -21,7 +22,9 @@ let [state, Dispatch] = useReducer(Reducer, initialState);
     setisLoading,
     handleSubmit,
     isLogin,
-    setisLogin
+    setisLogin,
+    isPreloader,
+    setisPreloader
     
   }}>{children}</AppContext.Provider>
     )
