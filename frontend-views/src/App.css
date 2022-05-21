@@ -1,32 +1,6 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 body{background:rgb(24,28,31);}
 /* ///////////////preloader//////////////////////// */
 .preloader{width:100%; height: 100%; background:rgb(24,28,31);
@@ -386,7 +360,7 @@ display:flex; flex-direction: column; align-items:center }
 /* ------------------------------------------------------------ */
 .signup_form2{width:47%; height:90%; display:flex; flex-direction:column;
   align-items:center;}
-.signup_label{width:90%; border-top: 1px solid rgb(102, 106, 110);
+.signup_label{width:70%; border-top: 1px solid rgb(102, 106, 110);
 display: flex; justify-content: center; margin-top: 5%;}
 .label{width: auto; background:#fff; position: relative; top:-12px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -404,13 +378,27 @@ font-size:12px ;padding-top:3px; }
    flex-direction: column; padding-left:12px; font-size:12px ;padding-top:3px;  } 
  .signup_date input[type='date']{ width:30%; border:none; outline:none;
   background:none;}   
+
+.subjects_ele{ width:90%; height:auto; display:flex; 
+  justify-content:space-evenly;
+flex-wrap:wrap; margin-top:5%} 
+.single_subject{ width:30%; height: 30px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ cursor:pointer; margin-top:1%; display:flex; align-items:center; justify-content:center}
+.s_active{ color: #fff; background: rgb(1, 124, 46); border-radius:12px}
+
+
+.single_subject span {font-family: 'Arial Black', Arial,Lucida;
+color: rgb(1, 124, 46); font-size:15px;padding-right:9px;}
+
+.single_subject .s_select {font-family: 'Arial Black', Arial,Lucida;
+color: #fff; font-size:18px;padding-right:9px}
 /* ----------------------------------------------------------- */
 .signup_button{width:100%; height:10%; display:flex; align-items: center;
   justify-content:center;}
 
-.signup_button button{width:60%; height: 50px; background:rgb(1, 124, 46);
+.signup_button > button{width:60%; height: 50px; background:rgb(1, 124, 46);
   border-radius: 12px; text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 14px; color:#fff; border:none;}
+  font-size: 14px; color:#fff; border:none;cursor:pointer}
 
 
 

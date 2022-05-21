@@ -3,7 +3,7 @@ import { useGlobalContext } from "../controller/context_api"
 import pages from '../pages.json'
 import {Default, Logged } from './actions'
 const Navigation = ()=>{
- console.log(pages);
+ 
     const {handleSubmit, isLogin} = useGlobalContext()
 
     return (
