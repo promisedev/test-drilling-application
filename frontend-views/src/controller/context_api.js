@@ -180,13 +180,23 @@ const [questions, setQuestions] = useState([])
          quest= [{q}]    
          newquest = [...newquest, ...quest ];
     }
-
+ 
     useEffect(() => { setQuestions([...newquest]) }, [])
     // console.log(newquest);
      //console.log(questions);
 //  ///////////////////////////////////////////////////////////
 const handleSubmit = (e)=>{
   e.preventDefault()}
+// ////////////change question position//////////////////////
+const [translateposition, setTranslateposition] = useState(0)
+let counter = 0;
+999999999999999999999999999999999
+  const changeQuestion = (e) =>{
+    counter++;
+    let position = counter*100;
+    setTranslateposition(position)
+    console.log("hello want to change question?",counter,position );
+    }
 
 let [state, Dispatch] = useReducer(Reducer, initialState);
     return (   
@@ -218,7 +228,7 @@ let [state, Dispatch] = useReducer(Reducer, initialState);
     userid, userimage, useremail, userstate, usercountry,
     userpassword, userfname, userlname, usergender,setLoggeduser,
     loggeduser, usercourse,userdob,
-    questions, setQuestions
+    questions, setQuestions, changeQuestion
     
   }}>{children}</AppContext.Provider>
     )
