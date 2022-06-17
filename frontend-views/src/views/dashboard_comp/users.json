@@ -1,0 +1,39 @@
+[
+    {"id":1,
+    "user_info":{
+        "firstname":"Victory",
+        "lastname":"martins",
+        "email":"frank22@outlook.com",
+        "password":"frank22",
+        "confirmpassword":"frank22",
+        "dateofbirth":"12-10-1990"
+    },
+    "state":"Rivers",
+    "country":"Nigeria",
+    "gender":"Male",
+    "image":"./graphics/user.png",
+    "course":[
+        {  "name":"mathematics",
+            "no_completedtopics":40,
+            "completed_topics":[],
+            "topics":123
+        },
+    {  "name":"english",
+            "no_completedtopics":20,
+            "completed_topics":[],
+            "topics":100
+        },
+        {  "name":"physics",
+            "no_completedtopics":40,
+            "completed_topics":[],
+            "topics":210
+        },
+      {  "name":"chemistry",
+            "no_completedtopics":40,
+            "completed_topics":[],
+            "topics":200
+        } 
+    ]
+
+}]
+

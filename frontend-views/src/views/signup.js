@@ -3,30 +3,33 @@ import { useRef, useState, useEffect } from 'react'
 import Navigation from './navigation'
 import { useGlobalContext } from '../controller/context_api'
 import subjects from './subjects.json'
+import genders from './gender.json'
+import states from './states.json'
+import countrys from './countrys.json'
 
 
 
 const Signup = () => {
     const { handleClick } = useGlobalContext();
     const [subject, setSubject] = useState(subjects)
-
     const selected_subjects = subject.filter((subject) => subject.selected === true)
-    
+     
+// /////////////user information
     const [userSubject, setUsersubject] = useState([])
 
     useEffect(()=>{setUsersubject(selected_subjects)},[subject])
-
+    
     const [user_info, setUser_info] = useState({
         first_name: '',
         last_name: '',
         email: '',
         password: '',
         confirm_password: '',
-        date_of_birth: '',
-        country: '',
-        state: '',
-        user_subject: userSubject
+        date_of_birth: ''
     })
+ const [user_state, setUser_state] = useState(null)
+ const [user_country, setUser_country] = useState(null)
+ const [user_gender, setUser_gender] = useState(null)   
     // take all form inputs
     const handleInputs = (e) => {
         setUser_info((prevState) => ({
@@ -40,7 +43,9 @@ const Signup = () => {
         e.preventDefault();
         console.log(user_info);
         console.log(userSubject)
-        console.log(selected_subjects)
+        console.log(user_state)
+        console.log(user_country)
+        console.log(user_gender)
     }
     // //////////////////
     // subjects state
@@ -80,6 +85,36 @@ const Signup = () => {
         //updating subject state with new values
         setSubject([...other_subject, ...new_single_sub])
     }
+    const drop_country = useRef(null)
+    const drop_gender = useRef(null)
+    const drop_state = useRef(null)
+    
+
+    const countryDrop = (e)=>{
+        drop_country.current.classList.toggle('drop_display')
+     }
+    const genderDrop = (e)=>{ 
+        drop_gender.current.classList.toggle('drop_display')    
+    }
+    const stateDrop = (e)=>{
+        drop_state.current.classList.toggle('drop_display')
+     }
+    const dropDisappear = (e)=>{
+     
+    //e.currentTarget.classList.remove('drop_display')
+     }
+const Setstate = (e)=>{
+const txt = e.currentTarget.textContent;
+setUser_state(txt)
+}
+const Setcountry = (e)=>{
+const txt = e.currentTarget.textContent;
+setUser_country(txt)
+}
+const Setgender = (e)=>{
+  const txt = e.currentTarget.textContent;
+  setUser_gender(txt) 
+}
 
     return (
         <section className='signup_cont'>
@@ -113,8 +148,21 @@ const Signup = () => {
                         <article className='signup_label'><div className='label'>other information</div></article>
                         <input type='hidden' name='gender' id='gender' value={user_info.gender} onChange={handleInputs}
                         />
-                        <article className='signup_field' >Gender
-                            <div className='field_value'> </div>
+                        <article className='signup_field' onClick={genderDrop} >Gender
+                        {/* dropdown for setting genders */}
+                        <nav className='g_drop_list' ref={drop_gender} onMouseOut={dropDisappear}>
+                           {genders.map((gend)=>{
+                            const {id, name, selected} = gend;
+                            return(
+                            <div className='single_list' key={id} 
+                             onClick={Setgender} >
+                                {name}
+                            </div>)
+
+                           })} 
+                        </nav>
+                        {/* ///////////////////////// */}
+                            <div className='field_value'>{user_gender} </div>
                         </article>
                         <article className='signup_date' >
                             Date of birth
@@ -123,13 +171,39 @@ const Signup = () => {
                         </article>
                         <input type='hidden' name='country' id='country' value={user_info.country} onChange={handleInputs}
                         />
-                        <article className='signup_field'>Country
-                            <div className='field_value'>{user_info.country}</div>
+                        <article className='signup_field' onClick={countryDrop}>Country
+                        {/* dropdown for setting genders */}
+                        <nav className='c_drop_list' ref={drop_country} onMouseOut={dropDisappear}>
+                           {countrys.map((countr)=>{
+                            const {id, name,} = countr;
+                            return(
+                            <div className='single_list' key={id}
+                              onClick={Setcountry}>
+                                {name}
+                            </div>)
+
+                           })} 
+                        </nav>
+                        {/* ///////////////////////// */}
+                            <div className='field_value'>{user_country}</div>
                         </article>
                         <input type='hidden' name='state' id='state' value={user_info.state} onChange={handleInputs}
                         />
-                        <article className='signup_field'>State
-                            <div className='field_value'>{user_info.state}</div>
+                        <article className='signup_field' onClick={stateDrop}>State
+                        {/* dropdown for setting genders */}
+                        <nav className='s_drop_list' ref={drop_state} onMouseOut={dropDisappear}>
+                           {states.map((stat)=>{
+                            const {id, state} = stat;
+                            return(
+                            <div className='single_list' key={id}
+                              onClick={Setstate}>
+                                {state}
+                            </div>)
+
+                           })} 
+                        </nav>
+                        {/* ///////////////////////// */}
+                            <div className='field_value'>{user_state}</div>
                         </article>
                         <article className='signup_label'><div className='label'>Choose subjects</div></article>
                         <article className='subjects_ele'>
