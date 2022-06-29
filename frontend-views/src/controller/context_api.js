@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useContext, useReducer} from 'react';
 import {Reducer} from './reducer'
 import users from '../views/dashboard_comp/users.json'
-
+import topics from '../views/topic/topics.json'
+// import course_performance from '../views/course_p.json'
+import drill_performance from '../views/drill_p.json'
 const AppContext = React.createContext();
 
 const initialState= {
@@ -189,14 +191,73 @@ const handleSubmit = (e)=>{
   e.preventDefault()}
 // ////////////change question position//////////////////////
 const [translateposition, setTranslateposition] = useState(0)
-let counter = 0;
-999999999999999999999999999999999
+const [isend, setIsend] = useState(false)
+let [counter, setCounter] = useState(0)
+
   const changeQuestion = (e) =>{
     counter++;
+    setCounter(counter)
     let position = counter*100;
+    if(position == 900){
+      setTranslateposition(position)
+      setIsend(true)
+    }else{    
     setTranslateposition(position)
-    console.log("hello want to change question?",counter,position );
     }
+
+    }
+
+    const submitQuestion = ()=>{
+      console.log("i want to submit");
+    }
+    // ///////////topic page js///////////////
+const [isphy, setIsphy] = useState(false)
+const [ismath, setIsmath] = useState(false)
+const [ischem, setIschem] = useState(false)
+const [iseng, setIseng] = useState(false)
+const [isbio, setIsbio] = useState(false)
+const [topic, setTopic] = useState(topics)
+
+// //this toggle show and hide of topic overlay
+const topicDropdown = (props)=>{
+    const {e} = props
+
+const ref_id = e.currentTarget.dataset.id;
+
+ if(ref_id === 'physics'){
+   setIsphy(!isphy); setIsmath(false); setIschem(false); 
+   setIsbio(false); setIseng(false);
+ } else 
+if(ref_id === 'chemistry'){
+  setIsphy(false); setIsmath(false); setIschem(!ischem); 
+   setIsbio(false); setIseng(false);
+ } else 
+if(ref_id === 'mathematics'){
+  setIsphy(false); setIsmath(!ismath); setIschem(false); 
+   setIsbio(false); setIseng(false);
+ }else 
+if(ref_id === 'english'){
+ setIsphy(false); setIsmath(false); setIschem(false); 
+   setIsbio(false); setIseng(!iseng);
+ }else 
+if(ref_id === 'biology'){
+ setIsphy(false); setIsmath(false); setIschem(false); 
+   setIsbio(!isbio); setIseng(false); 
+ }
+ 
+}
+
+// /this set the topic to be learnt
+const [interestedTopic, setInterestedTopic] = useState(null)
+const userTopic = (e)=>{
+const topic_id = e.currentTarget.dataset.id;
+setInterestedTopic(topic_id)
+}
+    // //////////statistics js//////////////////////
+    //const [learn_progress, setLearn_progress] = useState(usercourse)
+    const [drill_progress, setDrill_progress] = useState(drill_performance)
+    
+  // //////////////////////////////
 
 let [state, Dispatch] = useReducer(Reducer, initialState);
     return (   
@@ -228,7 +289,11 @@ let [state, Dispatch] = useReducer(Reducer, initialState);
     userid, userimage, useremail, userstate, usercountry,
     userpassword, userfname, userlname, usergender,setLoggeduser,
     loggeduser, usercourse,userdob,
-    questions, setQuestions, changeQuestion
+    questions, setQuestions, changeQuestion,
+    translateposition, isend, submitQuestion,
+    topicDropdown,
+    ischem, ismath, iseng, isbio, ismath, isphy,
+    topic, userTopic, drill_progress
     
   }}>{children}</AppContext.Provider>
     )

@@ -3,12 +3,14 @@ import { useGlobalContext } from "../../../controller/context_api";
 import ChangeQuestion from "../changeQuestion";
  
 
-
+ 
 const QuestionGroup1 = ()=>{
  
-const {questions} = useGlobalContext();
+const {questions, translateposition} = useGlobalContext();
+console.log(translateposition);
     return  (
-        <div className='test_question' style={{right:"0%"}}  >
+        <div className='test_question' style={{right:"0%",
+        transform: `translateX(-${translateposition}%)`}}  >
             {/* display question group */}
         <article className='test_question_body'>
 

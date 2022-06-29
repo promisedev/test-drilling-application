@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import Navigation from '../navigation'
 import dashmenu from './dashmenu.json'
-import DashbordMenu from './dashboard_menu'
+import DashboardMenu from './dashboard_menu'
 
 const LiveDashboard = ()=>{
 
@@ -11,7 +11,7 @@ const LiveDashboard = ()=>{
      {/* ////////////////////////////////////////////////////////////////// */}
         <article className='dash_body'>
             
-        <DashbordMenu/>
+        <DashboardMenu/>
         {/* /////////////////right content/////////////////////////////////// */}
         <div className='dash_l_content'>
         

@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import Navigation from '../navigation'
 import dashmenu from './dashmenu.json'
-import DashbordMenu from './dashboard_menu'
+import DashboardMenu from './dashboard_menu'
 import { useGlobalContext } from '../../controller/context_api'
 
 const ProfileDashboard = ()=>{
@@ -15,7 +15,7 @@ const ProfileDashboard = ()=>{
      {/* ////////////////////////////////////////////////////////////////// */}
         <article className='dash_body'>
             
-        <DashbordMenu/>
+        <DashboardMenu/>
         {/* /////////////////right content/////////////////////////////////// */}
         <div className='dash_l_content'>
         <article className='profile_title'>Account profile</article>

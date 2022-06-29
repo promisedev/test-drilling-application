@@ -1,13 +1,14 @@
 import { useGlobalContext } from "../../controller/context_api";
 
-const ChangeQuestion = (ele1)=>{
+const ChangeQuestion = ()=>{
 
-const { changeQuestion} = useGlobalContext();
+const { changeQuestion, submitQuestion,isend} = useGlobalContext();
 
     return (
 <article className='test_question_control'>
          <div className="previous_questions"></div>
-         <div className="next_questions" onClick={changeQuestion}>Next</div>   
+         {isend?<div className="next_questions" onClick={submitQuestion}>Finish/submit</div>:
+          <div className="next_questions" onClick={changeQuestion}>Next</div>}  
         </article> 
     )
 }

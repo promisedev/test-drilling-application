@@ -1,6 +1,9 @@
 import {BrowserRouter as Router,Route, Routes} from 'react-router-dom';
 import './App.css'
 import './dashboard.css'
+import './topic.css'
+import './notification.css'
+import './statistics.css'
 import Home from './views/home'
 import Login from './views/login'
 import Signup from './views/signup'
@@ -11,6 +14,7 @@ import NotificationDashboard from './views/dashboard_comp/notification_dashboard
 import StatisticsDashboard from './views/dashboard_comp/statistics_dashboard'
 import TestDashboard from './views/dashboard_comp/testdrill_dashboard'
 import ProfileDashboard from './views/dashboard_comp/profile_dashboard'
+import Topics from './views/topics';
 
 
 function App() {
@@ -20,6 +24,8 @@ function App() {
      <Route  path="/" element={<Home/>}/>
      <Route  path="/login" element={<Login/>}/>
      <Route  path="/signup" element={<Signup/>}/>
+      <Route  path="/topics" element={<Topics/>}/>
+     
      <Route  path="/dashboard" element={<CourseDashboard/>}/>
       <Route  path="/courses" element={<CourseDashboard/>}/>
      <Route  path="/chatroom" element={<ChatDashboard/>}/>

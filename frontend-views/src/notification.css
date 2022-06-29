@@ -1,0 +1,35 @@
+ .notify_header{ width: 90%; height: auto; margin-left: 5%;
+    font-family: 'Arial Black','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-size:19px ; margin-top: 5%;}
+ .notify_controls{width: 90%; height: auto; display: flex;
+margin: 2% 0% 2% 5%; justify-content: right;}
+.notify_button{width: auto; height: auto; padding: 5px 10px 5px 10px;
+margin-left: 2%; background-color: #fff; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 12px; border-radius: 10px; display:flex; justify-content: center;
+align-items: center; cursor: pointer;}
+.notify_symbol{ margin-right: 9px;}
+
+.danger{ background-color: rgb(230, 183, 183);
+color:rgb(82, 22, 22)}
+
+.notify_body{width:90%; height: auto; display: flex; flex-direction: column;
+margin-left: 5%;}
+.single_notify_div{width:100%; height: auto; display: flex;
+background-color: #fff; border-radius: 10px; cursor: pointer;}
+.notify_actions{width:10% }
+.notify_msg{width: 65%;}
+.notify_msg_title{ font-family: 'Arial Black', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ font-size:14px;margin-top: 2% ;}
+ .notify_msg_desc{ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:12px; margin-top: 2%; width:95%; height:auto;}
+
+.notify_date_ele{ width: 20%; height: 60px; margin-top: 2%;
+border-left: 1px solid rgb(148, 146, 146); margin-bottom: 2%;
+display:flex; align-items: flex-end; flex-direction: column;}
+.notify_date{ width: fit-content;}
+.notify_drop{width:fit-content; margin-top: 6%;}
+
+
+
+
+

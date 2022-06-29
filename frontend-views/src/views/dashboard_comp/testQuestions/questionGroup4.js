@@ -5,9 +5,10 @@ import ChangeQuestion from "../changeQuestion";
 const QuestionGroup4 = ()=>{
 
   
-  const {questions} = useGlobalContext();
+  const {questions, translateposition} = useGlobalContext();
     return  (
-        <div className='test_question' style={{right:"-300%"}} >
+        <div className='test_question' style={{right:"-300%",
+        transform: `translateX(-${translateposition}%)`}} >
         {/* display question group */}
         <article className='test_question_body'>
 
