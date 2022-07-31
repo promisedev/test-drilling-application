@@ -1,0 +1,48 @@
+
+.log_ani{width:200px; height:50px; background-color: none; display:flex;
+ align-items: center; justify-content: center; position: relative; overflow: hidden;}
+
+.log_dots{ background-color: #fff; border-radius: 50%; height: 8px; width:8px; margin-right: 3%; left:-5%}
+
+#log_1{animation: log1 2s ease-in-out 0s infinite linear;}
+
+#log_2{animation: log2 2s ease-in-out 0s infinite linear;}
+
+#log_1{ animation-name: log1; animation-timing-function: ease-in; animation-duration: 1s; animation-iteration-count: infinite;}
+
+@keyframes log1 { from{background-color:rgb(182, 226, 24);}to{background-color:rgb(76, 171, 22);} to{background-color:rgb(16, 58, 6);}
+    
+}
+#log_2{ animation-name: log2; animation-timing-function: ease-in; animation-duration: 1s; animation-iteration-count: infinite;}
+
+@keyframes log2 { from {
+        background-color: rgb(76, 171, 22);
+    }
+
+    to {
+        background-color: rgb(16, 58, 6);
+    }
+
+    to {
+        background-color: rgb(182, 226, 24);
+    }} 
+    
+
+
+#log_3{ animation-name: log3; animation-timing-function: ease-in; animation-duration: 1s; animation-iteration-count: infinite;}
+
+@keyframes log3 {from {
+        background-color: rgb(16, 58, 6);
+    }
+
+    to {
+        background-color: rgb(182, 226, 24);
+    }
+
+    to {
+        background-color: rgb(76, 171, 22);
+    }
+    
+}
+
+

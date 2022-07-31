@@ -1,7 +1,7 @@
 [
     {"id":1,
     "user_info":{
-        "firstname":"Victory",
+        "firstname":"victory",
         "lastname":"martins",
         "email":"frank22@outlook.com",
         "password":"frank22",
@@ -14,17 +14,17 @@
     "image":"./graphics/user.png",
     "course":[
         {  "name":"mathematics",
-            "no_completedtopics":40,
+            "no_completedtopics":80,
             "completed_topics":[],
             "topics":123
         },
     {  "name":"english",
-            "no_completedtopics":20,
+            "no_completedtopics":90,
             "completed_topics":[],
             "topics":100
         },
         {  "name":"physics",
-            "no_completedtopics":40,
+            "no_completedtopics":170,
             "completed_topics":[],
             "topics":210
         },

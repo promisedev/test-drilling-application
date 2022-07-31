@@ -1,0 +1,27 @@
+[
+    {"id":1,
+    "sender":"victory",
+    "time":"12:22",
+    "message":"some dummy message from the sender to the group"},
+{"id":2,
+    "sender":"ben",
+    "time":"01:22",
+    "message":"some dummy message from the sender to the group"},
+{"id":3,
+    "sender":"ben",
+    "time":"01:24",
+    "message":"some dummy message from the sender to the group"},
+{"id":4,
+    "sender":"victory",
+    "time":"01:24",
+    "message":"some dummy message from the sender to the group"},
+{"id":5,
+    "sender":"victory",
+    "time":"04:24",
+    "message":"some dummy message from the sender to the group"},
+{"id":6,
+    "sender":"george",
+    "time":"04:24",
+    "message":"some dummy message from the sender to the group"}
+    
+]

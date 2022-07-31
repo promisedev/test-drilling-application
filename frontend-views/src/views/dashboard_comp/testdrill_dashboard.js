@@ -13,12 +13,15 @@ import QuestionGroup8 from './testQuestions/questionGroup8'
 import QuestionGroup9 from './testQuestions/questionGroup9'
 import QuestionGroup10 from './testQuestions/questionGroup10'
 import { useGlobalContext } from '../../controller/context_api'
-
+import { useNavigate } from 'react-router-dom'
+import Loading from '../loading'
 
 const TestDashboard = () => {
- const {questions} = useGlobalContext()
-
+ const {questions,islogin, isLoading} = useGlobalContext()
+const history = useNavigate()
     return (
+        <> 
+{isLoading? <Loading/>:
         <section className='dash_container'>
             <Navigation />
             {/* ////////////////////////////////////////////////////////////////// */}
@@ -52,7 +55,8 @@ const TestDashboard = () => {
                         </div>
                     </article>
                     {/* ///////////////////////// */}
-                    <article className='test_question_cont'>
+                        <article className='test_question_cont_body'>
+                    <div className='test_question_cont'>
                     <QuestionGroup1/>
                     <QuestionGroup2/>
                <QuestionGroup3/>  
@@ -64,11 +68,14 @@ const TestDashboard = () => {
                 <QuestionGroup9/>
                 <QuestionGroup10/>      
                     
+                    </div>
                     </article>
 
                 </div>
             </article>
         </section>
+        }
+        </>
     )
 }
 

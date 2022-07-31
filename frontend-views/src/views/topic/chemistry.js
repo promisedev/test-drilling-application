@@ -1,10 +1,11 @@
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import { useRef } from "react";
 import { useGlobalContext } from "../../controller/context_api";
+import Topics from "../topics";
 
-const Chemistry = () => {
-const {topicDropdown, ischem, topic, userTopic} = useGlobalContext()
-
+const Chemistry = (props) => {
+const {topicDropdown, ischem,  userTopic} = useGlobalContext()
+const topic =props.props
 
   return (
     <article className="single_topic">
@@ -16,11 +17,11 @@ const {topicDropdown, ischem, topic, userTopic} = useGlobalContext()
         {/* //////////////////////////////// */}
         <div className="topic_list" style={ischem?{display:'block'}:{display:'none'}}>
           {
-               topic.map((item)=>{
-                const {id,name} =item;
+               topic.map((item,index)=>{
+                const {_id,topic} =item;
                 return (
-                  <article className='user_topic' data-id={id} onClick={(e)=>userTopic({e})}>
-                    {name} </article>
+                  <article className='user_topic' data-id={_id} onClick={(e)=>userTopic({e})} key={index}>
+                    {topic} </article>
                 ) 
                })
           }

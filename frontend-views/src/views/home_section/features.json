@@ -3,7 +3,7 @@
     "highlight":"Experience the real exam condition with our demo application.",
     "desc":"Our demo application helps you to take an examination with the same timing as that of the real examination.\n\r once started count down begins, if time elapses the system automatically submits your current session and your result will be displayed on the dashboard. ",
     "image":"./graphics/feature1.png",
-    "link":"/dashboard/test-drilling"
+    "link":"/dashboard/test_drilling"
 },
 {
     "id":2,

@@ -1,17 +1,25 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { useRef, useState, useEffect } from 'react'
 import Navigation from './navigation'
 import { useGlobalContext } from '../controller/context_api'
-import subjects from './subjects.json'
+//import subjectss from './subjects.json'
+import Footer from './footer'
 import genders from './gender.json'
 import states from './states.json'
 import countrys from './countrys.json'
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import axios from './axios'
+import Loading from './init_loading'
 
 
 
 const Signup = () => {
-    const { handleClick } = useGlobalContext();
-    const [subject, setSubject] = useState(subjects)
+    const history = useNavigate()
+    const [isloading,setisLoading] = useState(false);
+    const { handleClick, subject,setSubject} = useGlobalContext();
+
+    //console.log(subjectss,subject)
+
     const selected_subjects = subject.filter((subject) => subject.selected === true)
      
 // /////////////user information
@@ -29,59 +37,103 @@ const Signup = () => {
     })
  const [user_state, setUser_state] = useState(null)
  const [user_country, setUser_country] = useState(null)
- const [user_gender, setUser_gender] = useState(null)   
+ const [user_gender, setUser_gender] = useState(null)
+ 
+//  error messages///////
+ const [iserr,setIserr] = useState(false)
+    const [randerr,setRanderr] = useState("")
+    const [passerr,setPasserr] = useState("")
+    const [ispasserr,setIspasserr] = useState(false)
     // take all form inputs
     const handleInputs = (e) => {
         setUser_info((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value
-        }))
-
+        }));
+setIserr(false);
+setIspasserr(false)
     }
     // perform form submission
-    const handleRegister = (e) => {
+   
+    const handleRegister = async(e) => {
         e.preventDefault();
-        console.log(user_info);
-        console.log(userSubject)
-        console.log(user_state)
-        console.log(user_country)
-        console.log(user_gender)
+    // check is password match
+    if(!user_info.password || !user_info.confirm_password || !user_info.date_of_birth || !user_info.email || !user_info.first_name || !user_info.last_name || !user_state || !user_country || !user_gender || !userSubject) {setRanderr("user info is required"); setIserr(true)}
+     else{ 
+        if(user_info.password !== user_info.confirm_password) {setPasserr("password does not match"); setIspasserr(true)}else
+        if(userSubject.length <1) {setRanderr("select a subject"); setIserr(true)} else{
+    setisLoading(true)
+            await axios.post('/signup',{
+                userInfo:user_info,
+                course:userSubject,
+                gender:user_gender,
+                state:user_state,
+                country:user_country,
+                refresh_token:'',
+                sub_token:'',
+                sub_plan:'',
+                plan_expiry:'',
+                issubscribed:'',  
+                roles:''
+            }).then((res)=>{
+            //console.log(res.status)
+            if(res.status === 201){
+            setisLoading(false)
+            history('/account',{replace:true})
+            }
+            }
+                ).catch((err)=>{
+                //console.log(err)
+                setisLoading(false)
+                setRanderr("User already exist"); setIserr(true)
+                
+            })
+        // console.log(user_info);
+        // console.log(userSubject)
+        // console.log(user_state)
+        // console.log(user_country)
+        // console.log(user_gender)
+}        
+
+}
+
     }
     // //////////////////
     // subjects state
-    const activate = (e, id, selected) => {
+    const activate = (e, _id, selected) => {
         e.currentTarget.classList.add('s_active');
 
         //getting other subjects
 
-        const other_subject = subject.filter((subject) => subject.id !== id)
+        const other_subject = subject.filter((subject) => subject._id !== _id)
         //getting current subject
-        let current_subject = subject.filter((subject) => subject.id === id)
-        const c_id = current_subject[0].id
+        let current_subject = subject.filter((subject) => subject._id === _id)
+        const c_id = current_subject[0]._id
         const c_subject = current_subject[0].subject
-
+        const c_topics = current_subject[0].topics
         //creating a new object array
-        const new_single_sub = [{ id: c_id, subject: c_subject, selected: true }]
+        const new_single_sub = [{ _id: c_id, subject: c_subject, selected: true,topics:c_topics }]
 
         //updating subject state with new values
         setSubject([...other_subject, ...new_single_sub])
     }
 
-    const de_activate = (e, id, selected) => {
+    const de_activate = (e, _id, selected) => {
         e.currentTarget.classList.remove('s_active');
 
         //getting other subjects
-
-        const other_subject = subject.filter((subject) => subject.id !== id)
-        console.log(other_subject);
+        
+        const other_subject = subject.filter((subject) => subject._id !== _id)
+        //console.log(other_subject);
         //getting current subject
-        let current_subject = subject.filter((subject) => subject.id === id)
-        const c_id = current_subject[0].id
+        let current_subject = subject.filter((subject) => subject._id === _id)
+        const c_id = current_subject[0]._id
         const c_subject = current_subject[0].subject
         const c_selected = current_subject[0].selected
+        const c_topics = current_subject[0].topics
         //creating a new object array
-        const new_single_sub = [{ id: c_id, subject: c_subject, selected: false }]
-        console.log(new_single_sub)
+        const new_single_sub = [{ _id: c_id, subject: c_subject, selected: false, topics: c_topics }]
+        //console.log(new_single_sub)
         //updating subject state with new values
         setSubject([...other_subject, ...new_single_sub])
     }
@@ -120,9 +172,10 @@ const Setgender = (e)=>{
         <section className='signup_cont'>
             <Navigation />
             {/* ////////////////////////////////// */}
-
+{isloading&&<section className='log_loading'><Loading/></section>}
             <form className='signup_form' onSubmit={handleClick}>
-
+                <div className='err_div'>{iserr&&<article className='error'><ErrorOutlineIcon/> {randerr}
+                    </article>}</div>
                 <article className='signup_body'>
                     {/* //////signup form 1///////// */}
                     <div className='signup_form1'>
@@ -140,6 +193,7 @@ const Setgender = (e)=>{
                             placeholder='Password' />
                         <input type='password' name='confirm_password' id='confirm_password' value={user_info.confirm_password} onChange={handleInputs}
                             placeholder='Confirm password' />
+                            {ispasserr && <span className="pass_err"><ErrorOutlineIcon/>{passerr}</span>}
                     </div>
                     {/* /////////////////center////////// */}
                     <div className='signup_center'></div>
@@ -209,12 +263,12 @@ const Setgender = (e)=>{
                         <article className='subjects_ele'>
                             {
                                 subject.map((subj) => {
-                                    const { id, subject, selected } = subj;
+                                    const { _id, subject, selected } = subj;
                                     let isselected = selected;
                                     return (
-                                        isselected ? <div className='single_subject' key={id} onClick={(e) => de_activate(e, id, selected)}>
+                                        isselected ? <div className='single_subject' key={_id} onClick={(e) => de_activate(e, _id, selected)}>
                                             <span className='s_select'>-</span>{subject}</div>
-                                            : <div className='single_subject' key={id} onClick={(e) => activate(e, id, selected)}>
+                                            : <div className='single_subject' key={_id} onClick={(e) => activate(e, _id, selected)}>
                                                 <span>+</span>{subject}
                                             </div>
                                     )
@@ -231,6 +285,7 @@ const Setgender = (e)=>{
                 </article>
             </form>
 
+<Footer/>
         </section>
     )
 }

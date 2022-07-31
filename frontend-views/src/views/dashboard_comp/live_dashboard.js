@@ -2,10 +2,15 @@ import {useState} from 'react'
 import Navigation from '../navigation'
 import dashmenu from './dashmenu.json'
 import DashboardMenu from './dashboard_menu'
-
+import { useNavigate } from 'react-router-dom'
+import { useGlobalContext } from '../../controller/context_api'
+import Loading from '../loading'
 const LiveDashboard = ()=>{
-
+const{islogin,isLoading} =useGlobalContext()
+const history = useNavigate()
  return(
+  <> 
+{isLoading? <Loading/>:
 <section className='dash_container'>
         <Navigation/>
      {/* ////////////////////////////////////////////////////////////////// */}
@@ -19,6 +24,8 @@ const LiveDashboard = ()=>{
         </div>
         </article>
         </section>
+        }
+        </>
     )
 }
 

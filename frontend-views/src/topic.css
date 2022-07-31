@@ -38,4 +38,5 @@ align-items: center; padding-left: 4%; transition: 0.4s ease-in-out;
 .topic_btn{ width:50%; height:40px; border-radius: 10px;
      background-color:rgb(1, 124, 46); display:flex; align-items: center;
      justify-content: center; font-family: Arial,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     font-size: 15px; color:#fff; cursor:pointer}
+     font-size: 15px; color:#fff; cursor:pointer;transition: 0.8s ease-in-out;}
+.topic_btn:hover{background-color:rgb(2, 84, 32); transition: 0.8s ease-in-out;}

@@ -6,9 +6,9 @@ const Navigation = ()=>{
  
     const {handleSubmit, isLogin} = useGlobalContext()
 
-    return (
+    return ( 
         <article className='navigation_div' style={{background:"rgb(24,28,31)"}}>
-        <div className='logo_div'><img src={'./graphics/logo1.ico'} alt='logo' className='nav_logo'/></div>
+        <div className='logo_div'><img src={'../../../../graphics/logo1.ico'} alt='logo' className='nav_logo'/></div>
         {/* //////////search div////////// */}
         <div className='search_div'>
           <form onSubmit={handleSubmit}>

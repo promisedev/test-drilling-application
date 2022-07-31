@@ -1,0 +1,58 @@
+.cms_control{ width:90%; height:70px; background-color:none; margin-left: 5%; margin-top: 4%; display:flex; align-items: center; justify-content: space-evenly;}
+.cms_ctr{ width:fit-content; height: 40px; border-radius: 13px; border: 1px solid rgb(161,207,57); display: flex; align-items: center; justify-content: center; padding: 2px 9px 2px 9px; cursor:pointer;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 15px; color:rgb(161,207,57)}
+.cms_ctr .MuiSvgIcon-root{ margin-right: 4px;font-size: 19px;}
+
+.active_cms_ctr{ border-radius: 0px;border:none; border-bottom: 1.5px solid rgb(4, 4, 29);
+color:rgb(4, 4, 29) ;}
+
+.cms_body{ width: 90%; height:65%; background:none; margin-left: 5%;
+position:relative; overflow: hidden;}
+
+.cms_body_items{ width:100%; height:100%; position:absolute;
+background-color: none; overflow-y: scroll;}
+
+.cms_videoform_cont{width:100%; height:auto; display:flex; flex-direction: column; align-items: center;}
+.cms_header{width:50%; background-color: none; margin-top: 5%; font-family: 'Arial Black',Arial,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 16px;}
+.cms_form{width: 50%; height:auto;background-color: none; display: flex; flex-direction: column; align-items: center;}
+.cms_form_div{width:100%; display:flex; position:relative}
+.cms_form_content{width:90%; border-bottom: 1.5px solid rgb(3, 3, 22); margin-top: 6%; height: 30px;
+font-family: Arial,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:23px; color:rgb(161,207,57)}
+.cms_form_div input[type='text']{
+        width: 90%;
+        border: none;
+        outline: none;
+        border-bottom: 1.5px solid rgb(3, 3, 22);
+        margin-top: 6%;
+        height: 30px;
+        font-family: Arial,'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:23px; color:rgb(161,207,57); background: none;
+
+    }
+.cms_label{ width:40px; height:40px; background-color: rgb(3, 3, 22); position:absolute; border-radius: 50%; display:flex; align-items:center;justify-content: center;right: 6%;bottom: 0%; color: #fff; transform: rotate(40deg);}
+.cms_drop{ width:40px; height:40px; background-color: rgb(3, 3, 22); position:absolute; border-radius: 50%; display:flex; align-items:center;justify-content: center;right: 6%;bottom: 0%; color: #fff;cursor: pointer; }
+.cms_label input[type='file']{display: none;}
+.cms_button{ width: fit-content; height:30px; margin-top: 3%; border: 1px solid rgb(3, 3, 22); border-radius:12px; color:rgb(3, 3, 22); font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:14px; padding:2px 9px 2px 9px; display: flex; align-items:center; justify-content: center; cursor: pointer;}
+.cms_button .MuiSvgIcon-root {
+    margin-right: 4px;
+    font-size: 19px;
+}
+
+.cms_drop_content{position: absolute; display:none; width:60%; height: 200px; background-color: #fff; transition: 1s ease-in-out; box-shadow:1px 1px 4px 1px rgb(182, 183, 182) ;}
+.cms_show{display: flex;transition: 1s ease-in-out;z-index: 1;}
+
+.cms_drop_form{ width:100%; display: flex; flex-direction: column;background-color: none;}
+
+.cms_drop_form_div{ width:95%; display: flex; height:20px; margin-top: 4%;  align-items: center; margin-left: 5%;}
+.cms_drop_form_div input[type='radio']{ -webkit-appearance: none; appearance: none; background-color: #fff; margin: 0; width: 15px; height: 15px; border: 1px solid rgb(161,207,57); border-radius: 50%;margin-right: 2%; display: flex; align-items: center; justify-content: center; position: relative;}
+/* /----------------re configuring radio button  */
+.cms_drop_form_div input[type='radio']::before{
+content:""; width: 9px; height:9px; border-radius: 50%;  margin:0%;background-color: rgb(161,207,57); transform: scale(0);
+transition: 120ms transform ease-in-out;
+}
+
+.cms_drop_form_div input[type='radio']:checked::before{
+    transform: scale(1);
+}
+
+
+

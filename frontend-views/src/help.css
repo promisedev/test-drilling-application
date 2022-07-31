@@ -1,0 +1,24 @@
+
+.help_component{width:100%; height: auto; display:flex; flex-direction:column; background-color:#fff}
+.help_body{ width:100%; height:600px; background-color:rgb(248,248,248); display:flex}
+.faq_cont{width:50%; height:auto; display:flex; flex-direction: column; margin-top:10%; align-items:center; overflow-y: scroll;}
+.faq_title{font-family: 'Arial Black',Arial,Geneva, Verdana, sans-serif; color:black; font-size: 18px; font-weight:bold; width:70%; height: 40px; display:flex; justify-content: center;align-items: center; background-color: rgb(201, 234, 226,0.6); border-radius: 12px 12px 0px  0px;}
+.single_faq{font-family: Arial,Geneva, Verdana, sans-serif; color:rgb(58, 57, 57); font-size: 14px;  width:70%; height: auto; display:flex; justify-content: center; background-color: none;position: relative; flex-direction: column; padding: 15px 0px 15px 0px}
+.single_faq .MuiSvgIcon-root{font-size: 20px;}
+
+.single_faq_title{margin-left: 12px;font-weight:bold;font-family: 'Arial Black', Arial;    color: rgb(51, 169, 8);  font-size: 14px;}
+.single_faq_dropdown{width: 100%; height: 0px; overflow:hidden;transition:1s ease-in-out; font-size:12px; display: flex; justify-content:center; margin-top: 0%; color:rgb(47, 49, 48)}
+.single_faq_desc{width: 90%; height: auto; }
+.show_single_dropdown{height: 100px; overflow:none;transition:1s ease-in-out;margin-top: 5%;}
+/* ----------------------- */
+.suggestion_cont{width:50%; height:auto;display: flex;
+    flex-direction: column; margin-top: 10%;align-items: center;}
+
+.suggestion_title{width:60%; font-family: 'Arial Black',Arial; font-size:17px}
+.suggestion_cont .sug_form{width:70%; display:flex; flex-direction:column; margin-top:5%; align-items: center;}
+.suggestion_cont .sug_form>input[type='text']{ border:none; height:40px; width:90%;outline: none; background:none;border-bottom: 1px solid rgb(51, 169, 8);
+font-family:'Arial Black',Arial; color:rgb(51, 169, 8); font-size: 18px;}
+.suggestion_cont .sug_form>textarea{ border:none; height:70px; outline: none; width:90%;background:none;resize:none; border-bottom: 1px solid rgb(51, 169, 8); margin-top: 5%;font-family:'Arial Black',Arial; color:rgb(51, 169, 8); font-size: 15px;}
+
+.sug_button{ margin-top:5%; border-radius:20px; width:fit-content; padding:9px 30px 9px 30px; border:1px solid rgb(7, 7, 18);font-family:'Arial Black',Arial; color:rgb(51, 169, 8); font-size: 15px;transition: 1s ease-in-out; cursor:pointer }
+.sug_button:hover{background-color:rgb(51, 169, 8); color:#fff; border:1px solid #fff; transition:1s ease-in-out}

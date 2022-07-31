@@ -3,14 +3,42 @@ import Navigation from '../navigation'
 import dashmenu from './dashmenu.json'
 import DashboardMenu from './dashboard_menu'
 import { useGlobalContext } from '../../controller/context_api'
+import { useNavigate } from 'react-router-dom'
+import Loading from '../loading'
+import PlanA from './subplans/plan_a1'
+import PlanB from './subplans/plan_b1'
+import PlanC from './subplans/plan_c1'
+import { CloseRounded } from '@material-ui/icons'
+
 
 const ProfileDashboard = ()=>{
   const {userid, userimage, useremail, userstate, usercountry,
     userpassword, userfname, userlname, usergender,setLoggeduser,
-  usercourse, userdob} = useGlobalContext()
+  usercourse, userdob, islogin,isLoading,userplan,planexpiry,issubscribed} = useGlobalContext() 
 
+const history = useNavigate()
+const [ismodal,setismodal] = useState(false)
+const activateModal =()=>{
+setismodal(true)
+}
+const closeModal =()=>{
+setismodal(false)
+}
  return(
+  <> 
+{isLoading? <Loading/>:
 <section className='dash_container'>
+{/* ------------------------------ */}
+{ismodal&&<section className='payment_modal'>
+  <div className='close_payment_modal'><CloseRounded onClick={closeModal}/></div>
+  <div className='payment_modal_cont'>
+  <PlanA />
+<PlanC/>
+      <PlanB/> 
+      </div>
+  </section>}
+{/* ------------------------------ */}
+
         <Navigation/>
      {/* ////////////////////////////////////////////////////////////////// */}
         <article className='dash_body'>
@@ -33,13 +61,15 @@ const ProfileDashboard = ()=>{
           <div className='profile_label'>Subscription</div>
           <p>Account Status</p>
             <article className='profile_stat'>
-              <div className='profile_danger'>Not active</div>
-              <div className='profile_neutral'>activate</div>
+             {issubscribed? <div className='profile_success'>Active</div>
+              :<><div className='profile_danger'>Not active</div>
+              <div className='profile_neutral' onClick={activateModal}>activate</div></>
+              }
             </article>
             <p>Service Plan</p>
-            <div className='profile_primary'>4 months</div>
+            <div className='profile_primary'>{userplan||'***********'}</div>
             <p>Expiration Date</p>
-            <div className='profile_primary'>12-06-22</div>
+            <div className='profile_primary'>{planexpiry||'***********'}</div>
           </article>
 
           {/* ///////////registered course///////// */}
@@ -48,9 +78,9 @@ const ProfileDashboard = ()=>{
           <div className='profile_course_cont'>
             {
               usercourse.map((course, index)=>{
-                const {name} = course;
+                const {subject} = course;
                  return (
-                    <div className='profile_course' key={index}>{name}</div>
+                    <div className='profile_course' key={index}>{subject}</div>
                  )
               })
             }
@@ -70,7 +100,7 @@ const ProfileDashboard = ()=>{
 {/* /////////////////////////////////////// */}
       <article className='profile_info_cont'>
       <p>Password:</p>
-      <div className='profile_primary'>{userpassword}</div>
+      <div className='profile_primary'>************</div>
       <div className='profile_neutral'>change</div>
       </article>
 {/* /////////////////////////////////////// */}
@@ -104,6 +134,8 @@ const ProfileDashboard = ()=>{
         </div>
         </article>
         </section>
+        }
+        </>
     )
 }
 

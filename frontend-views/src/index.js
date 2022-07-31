@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {AppProvider} from './controller/context_api';
-
+// import dotenv from 'dotenv'
+// dotenv.config()
 ReactDOM.render(
   <React.StrictMode>
 <AppProvider>

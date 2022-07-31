@@ -1,6 +1,6 @@
 import {useRef,useEffect} from 'react'
 const Loading = ()=>{
-const bg_items1 = useRef(null)
+
 const bg_nav1 = useRef(null)
 const bg_nav2 = useRef(null)
 const bg_nav3 = useRef(null)
@@ -41,15 +41,14 @@ const bg_fbar3 = useRef(null)
 const bg_rbar10 = useRef(null)
 const bg_rbar11 = useRef(null)
 const bg_rbar12 = useRef(null)
- 
+ const bg_search = useRef(null)
 
 // /////////////////////////
 useEffect( 
  ()=>{ 
-  const change_color = () => {   
-    // getting all the elements
-const search = bg_items1.current;
-//const search = document.querySelector('search_item');
+   // getting all the elements
+
+
 const nav1 = bg_nav1.current;
 const nav2 = bg_nav2.current;
 const nav3 = bg_nav3.current;
@@ -89,7 +88,9 @@ const rol_bar9 = bg_rbar9.current;
 const rol_bar10 = bg_rbar10.current;
 const rol_bar11 = bg_rbar11.current;
 const rol_bar12 = bg_rbar12.current;
-
+  const search = bg_search.current;
+const ChangeColor = () => {   
+  
 // create function
 
 
@@ -136,9 +137,9 @@ rol_bar11.classList.toggle('change_color');
 rol_bar12.classList.toggle('change_color');
 }
 // /setinterval
-setInterval(change_color,1000)
+setInterval(ChangeColor,1000)
 
-clearInterval(change_color,1000)
+clearInterval(ChangeColor,1000)
 },[])
 
 
@@ -148,10 +149,10 @@ clearInterval(change_color,1000)
         
         <section className='loading_container'>
           <article className='navigation_div'>
-        <div className='logo_div'><img src={'./graphics/logo1.ico'} alt='logo' className='nav_logo'/></div>
+        <div className='logo_div'><img src={'../../../../graphics/logo1.ico'} alt='logo' className='nav_logo'/></div>
         {/* //////////////////// */}
         <div className='search_div'>
-          <article className='search_item' ref={bg_items1}></article>
+          <article className='search_item' ref={bg_search}></article>
         </div>
         {/* //////////////////// */}
         <div className='nav_div'>
@@ -204,9 +205,9 @@ clearInterval(change_color,1000)
               <article className='menu_button' ref={bg_items17}></article>
               </div>
            </article>
-        </div>
+        </div> 
         {/* /////////////////right content/////////////////////////////////// */}
-        <div className='l_content'>
+        <div className='nl_content'>
           <article className='column1'>
             <div className='col1_rol1'>
               <article className='f_bar1' ref={bg_fbar1}></article>

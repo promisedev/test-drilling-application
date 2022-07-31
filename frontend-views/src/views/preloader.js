@@ -1,10 +1,10 @@
-
+import Loading from './init_loading'
 
 const Preloader = ()=>{
 
     return(
 <section className='preloader'>
-   <div className='pre'>Loading...</div> 
+   <Loading/> 
     </section>
     )
 }

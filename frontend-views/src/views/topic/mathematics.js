@@ -4,9 +4,9 @@ import { useGlobalContext } from "../../controller/context_api";
 
 
 
-const Mathematics = () => {
-const {topicDropdown,ismath, topic, userTopic} = useGlobalContext()
-
+const Mathematics = (props) => {
+const {topicDropdown,ismath,  userTopic} = useGlobalContext()
+const topic = props.props
   return (
     <article className="single_topic">
         <div className="topic_title" >Mathematics
@@ -17,11 +17,11 @@ const {topicDropdown,ismath, topic, userTopic} = useGlobalContext()
         {/* //////////////////////////////// */}
         <div className="topic_list" style={ismath?{display:'block'}:{display:'none'}}>
           {
-               topic.map((item)=>{
-                const {id,name} =item;
+               topic.map((item,index)=>{
+                const {_id,topic} =item;
                 return (
-                  <article className='user_topic' data-id={id} onClick={(e)=>userTopic({e})}>
-                    {name} </article>
+                  <article className='user_topic' data-id={_id} onClick={(e)=>userTopic({e})} key={index}>
+                    {topic} </article>
                 ) 
                })
           }

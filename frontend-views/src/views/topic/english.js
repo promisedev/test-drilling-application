@@ -3,9 +3,9 @@ import { useGlobalContext } from "../../controller/context_api";
 import {ExpandMore,ExpandLess} from  '@material-ui/icons'
 
 
-const English = () => {
-const {topicDropdown, iseng, topic, userTopic} = useGlobalContext()
-
+const English = (props) => {
+const {topicDropdown, iseng, userTopic} = useGlobalContext()
+const topic = props.props
   return (
     <article className="single_topic">
         <div className="topic_title" >English
@@ -16,11 +16,11 @@ const {topicDropdown, iseng, topic, userTopic} = useGlobalContext()
         {/* //////////////////////////////// */}
         <div className="topic_list" style={iseng?{display:'block'}:{display:'none'}}>
             {
-               topic.map((item)=>{
-                const {id,name} =item;
+               topic.map((item,index)=>{
+                const {_id,topic} =item;
                 return (
-                  <article className='user_topic' data-id={id} onClick={(e)=>userTopic({e})}>
-                    {name} </article>
+                  <article className='user_topic' data-id={_id} onClick={(e)=>userTopic({e})} key={index}>
+                    {topic} </article>
                 ) 
                })
           }

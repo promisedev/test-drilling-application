@@ -8,10 +8,11 @@ import Homesection1 from './home_section/homeSection1'
 import Homesection2 from './home_section/homeSection2'
 import Homesection3 from './home_section/homeSection3'
 import Homesection4 from './home_section/homeSection4'
+import Footer from './footer'
 
 
 const Home = ()=>{
-const {isPreloader,setisPreloader,isLogin} = useGlobalContext()
+const {isPreloader,setisPreloader,isLogin,isLoading} = useGlobalContext()
 const windowHeight = window.innerHeight;
 //useEffect(()=>{ window.addEventListener('load',()=>{setisPreloader(false)})},[])
 
@@ -20,7 +21,7 @@ const windowHeight = window.innerHeight;
 
 
     return (
-        isPreloader?<Preloader/>:
+        isLoading?<Preloader/>:
         <section className='home_content' >
 {/* ////////////////hero section/////////////////////////////////// */}
             <article className='hero' style={{height:`${windowHeight}px`,
@@ -54,6 +55,7 @@ const windowHeight = window.innerHeight;
 {/* ////////////////////home section 4//////////////////////////////////////////// */}
 <Homesection4/>
 
+<Footer/>
 </section>
     )
 }

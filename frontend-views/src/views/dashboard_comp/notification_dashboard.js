@@ -3,13 +3,18 @@ import Navigation from '../navigation'
 import dashmenu from './dashmenu.json'
 import DashboardMenu from './dashboard_menu'
 import {Done, DoneAll, ExpandMore} from '@material-ui/icons'
-
+import { useGlobalContext } from '../../controller/context_api'
+import { useNavigate } from 'react-router-dom'
+import Loading from '../loading'
 
 
 
 const NotificationDashboard = ()=>{
-
+const {islogin,isLoading} = useGlobalContext()
+const history = useNavigate()
  return(
+  <> 
+{isLoading? <Loading/>:
 <section className='dash_container'>
         <Navigation/>
      {/* ////////////////////////////////////////////////////////////////// */}
@@ -46,6 +51,8 @@ const NotificationDashboard = ()=>{
         </div>
         </article>
         </section>
+        }
+        </>
     )
 }
 
